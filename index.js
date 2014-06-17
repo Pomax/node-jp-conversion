@@ -539,8 +539,7 @@ module.exports = {
     // then do sensible っ replacement instead
     result = result.replace(/っ(\w)/g,"$1$1");
     // turn a trailing っ into a "!" because that's the most semantically correct I can come up with
-    result = result.replace(/っ$/,'!'); }
-
+    result = result.replace(/っ$/,'!');
     return result;
   }
 };
