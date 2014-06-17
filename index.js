@@ -520,6 +520,9 @@ module.exports = {
       output.hiragana = false;
     }
 
+    // for romanising purposes, a training っ cannot be transliterated in any sensible way...
+    if(output.romaji) { output.romaji = output.romaji.replace(/っ$/,'!'); }
+
     return output;
   },
 
