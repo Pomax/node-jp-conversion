@@ -537,7 +537,10 @@ module.exports = {
     result = replaceArray(rmap[2].keys, rmap[2].values, result);
     result = replaceArray(rmap[1].keys, rmap[1].values, result);
     // then do sensible っ replacement instead
-    result = result.replace(/っ(\w)/,"$1$1");
+    result = result.replace(/っ(\w)/g,"$1$1");
+    // turn a trailing っ into a "!" because that's the most semantically correct I can come up with
+    result = result.replace(/っ$/,'!'); }
+
     return result;
   }
 };
