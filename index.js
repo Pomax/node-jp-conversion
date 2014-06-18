@@ -1,5 +1,3 @@
-var kanjiRange = /[\u3300-\u33FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/;
-
 // Always useful to have lying around
 var AssociativeArray = function() {
   return {
@@ -451,6 +449,9 @@ var katakana = ["ァ","ア","ィ","イ","ゥ","ウ","ェ","エ","ォ","オ",
       "ン","ヴ","ヵ","ヶ",
       "ヷ","ヸ","ヹ","ヺ"];
 
+// all kanji in the basic unicode plane
+var kanjiRange = /[\?_%\*\u3300-\u33FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/;
+
 // replace values from array 1 with corresponding values from array 2
 var replaceArray = function(searcharray, replacearray, input) {
     var i, e = searcharray.length;
@@ -489,7 +490,7 @@ module.exports = {
     }
 
     var roman = input;
-    // but does the input contain any kana?
+    // does the input contain any kana?
     if (new RegExp("[\u3040-\u30FF]").test(input)) {
       output.romaji = this.romanise(input);
     }
@@ -511,7 +512,7 @@ module.exports = {
     output.katakana = replaceArray(hiragana, katakana, output.katakana);
 
     // if the katakana still contains ascii, this word cannot be converted
-    if(new RegExp("[\u0040-\u007A]").test(output.katakana)) {
+    if(new RegExp("[\u0041-\u005A\u0061-\u007A]").test(output.katakana)) {
       return false;
     }
 
