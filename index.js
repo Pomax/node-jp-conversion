@@ -450,7 +450,7 @@ var katakana = ["ァ","ア","ィ","イ","ゥ","ウ","ェ","エ","ォ","オ",
       "ヷ","ヸ","ヹ","ヺ"];
 
 // all kanji in the basic unicode plane
-var kanjiRange = /[\?_%\*\u3300-\u33FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/;
+var kanjiRange = /[\u3300-\u33FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/;
 
 // replace values from array 1 with corresponding values from array 2
 var replaceArray = function(searcharray, replacearray, input) {
